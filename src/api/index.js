@@ -1,18 +1,15 @@
+// Eliminar los comentarios del código
 import axios from 'axios';
 import * as actions from '../actions';
-
 const ROOT_URL = "https://smartplannerbe.herokuapp.com";
 
 export const getUser = (username, callback) => {
     axios.get(ROOT_URL+ "/users?username=" + username)
     .then(response => {
-      //callback(action.getUserOk(response.data));
       callback(response.data);
     }).catch(err => {
-      //callback(action.getUserErr(response.data));
       callback(err.message);
     });
-    //return actions.toggleUserLoading();
 };
 
 export const updateUser = (userId, user, callback) => {
@@ -35,7 +32,6 @@ export const getHmks = (userId, category, order, callback) => {
       callback(err.message);
     });
     };
-    //return actions.toggleHmkLoading()};
 
 export const addHmkToUser = (userId, hmk, callback) => {
     axios.post(ROOT_URL+ "/users/"+userId+"/hmks", hmk)
@@ -44,7 +40,6 @@ export const addHmkToUser = (userId, hmk, callback) => {
   }).catch(err => {
       callback(err.message);
   });
-    //retornar actions.postHmkOk() o actions.postHmkErr() segun el caso
 };
 
 export const updateHmk = (userId, hmkId, hmk, callback) => {
@@ -54,7 +49,6 @@ export const updateHmk = (userId, hmkId, hmk, callback) => {
   }).catch(err => {
       callback(err.message);
   });
-  //return actions.toggleHmkLoading();
 };
 
 export const deleteHmk = (userId, hmkId, callback) => {
@@ -63,5 +57,4 @@ export const deleteHmk = (userId, hmkId, callback) => {
     }).catch(err => {
       callback(err.message);
   });
-    //return actions.toggleHmkLoading();
 };
