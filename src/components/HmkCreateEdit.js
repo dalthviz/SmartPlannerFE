@@ -14,7 +14,7 @@ class HmkCreateEdit extends Component {
         description: hmkObj.description || '',
         estimated_time: hmkObj.estimated_time || 0,
         limit_date: hmkObj.limit_date || new Date().getTime(),
-        done_percentage: hmkObj.done_percentage || 0,
+        done_percentage: (hmkObj.done_percentage || 0)*100,
         importance: hmkObj.importance || 0
     }
     var me = this;
@@ -68,15 +68,27 @@ class HmkCreateEdit extends Component {
     });
   };
 
-  close = () => {
+  close = (e) => {
+    e.preventDefault();
     this.props.toggleModal('hidden');
   };
+
+  send = (e) => {
+    e.preventDefault();
+    this.setState({'done_percentage':this.state.done_percentage/100});
+    this.props.modalAction(this.state);
+    this.props.toggleModal('hidden');
+  }
 
 
   render() {
     return (
       //TODO estructura de un elemento tarea
-      <div className={"hmk-edit-container "+this.props.show}>
+      <div className="row">
+      <div className="col-xs-2"></div>
+      <div className={"hmk-edit-container col-xs-12 "+this.props.show}>
+      
+      <div className="col-xs-12">
         <div className="row">
         <div className="col-xs-12">
         <h3>{this.getAction()} una tarea</h3>
@@ -116,7 +128,7 @@ class HmkCreateEdit extends Component {
             <label htmlFor="done_percentage">Progreso (%):</label>
             </div>
             <div className="col-xs-8">
-            <input id="done_percentage" name="done_percentage" type="number" min="0" max="100" vaule={this.state.done_percentage*100}
+            <input id="done_percentage" name="done_percentage" type="number" min="0" max="100" vaule={this.state.done_percentage}
             onChange={this.verifyPercentage}/>
             </div>
           </div>
@@ -136,12 +148,15 @@ class HmkCreateEdit extends Component {
           </div>
           <div className="row">
             <div className="col-md-12">
-              <button className="btn btn-primary" onClick={() => {this.props.modalAction(this.state)}}>Ok</button>
+              <button className="btn btn-primary" onClick={this.send}>Ok</button>
               <button className="btn btn-danger" onClick={this.close}>Cancelar</button>
             </div>
           </div>
         </form>
+        </div>
       </div>
+        <div className="col-xs-2"></div>
+        </div>
     );
   }
 }

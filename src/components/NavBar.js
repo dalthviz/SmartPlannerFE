@@ -10,6 +10,7 @@ import UserEdit from './UserEdit';
 class NavBar extends Component {
 
   resetCreateForm = (callback) => {
+    this.props.resetCreateForm(callback);
     this.resetHmk = (obj) => {callback(obj);}
   };
 
@@ -22,21 +23,21 @@ class NavBar extends Component {
     console.log(this);
 		return(
       <div>
-<nav className="navbar navbar-default">
-  <div className="container-fluid">
-    <div className="navbar-header">
+<nav className="navbar navbar-default sp-nav-style">
+    <div className="navbar-header sp-nav-header">
       <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
 				<span className="sr-only">Toggle navigation</span>
-				<span className="icon-bar"></span>
-        <span className="icon-bar"></span>
-        <span className="icon-bar"></span>
+				<span className="icon-bar white"></span>
+        <span className="icon-bar white"></span>
+        <span className="icon-bar white"></span>
       </button>
       <a className="navbar-brand" href="#">
       			<img alt="Smart Planner" src="./style/imgs/smartPlanner.png" className="logo_img" />
       </a>
     </div>
     <div className="navbar-collapse collapse" id="myNavbar">
-      <ul className="nav navbar-nav navbar-right">
+    <div className="sp-nav-links">
+      <ul className="nav navbar-nav navbar-right sp-nav-options">
         <li><a href="#" onClick={() => {
           this.resetUser();
           this.props.toggleEditUser('show');
@@ -50,8 +51,8 @@ class NavBar extends Component {
           this.props.toggleLogin('show')
         }}><span className="glyphicon glyphicon-log-in"></span> Cambiar Usuario</a></li>
       </ul>
+      </div>
     </div>
-  </div>
   </nav>
   <HmkCreateEdit show={this.props.addHmk} modalAction={this.props.postHmk} toggleModal={this.props.toggleAddHmk} reset={this.resetCreateForm}/>
   <UserEdit user={this.props.user} show={this.props.editUser} modalAction={this.props.postUser} toggleModal={this.props.toggleEditUser} reset={this.resetUserForm}/>

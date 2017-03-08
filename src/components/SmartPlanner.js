@@ -25,10 +25,10 @@ class SmartPlanner extends Component {
   }
 
   /*obtiene al usurio con username dado*/
-  getUser = (username, callback) => { api.getUser(username, callback)};
+  getUser = (username, callback, errCallback) => { api.getUser(username, callback, errCallback)};
 
   /*Obtiene las tareas con parametros dados*/
-  getHmks = (userId, category, order, callback) => { api.getHmks(userId, category, order, callback)};
+  getHmks = (userId, category, order, callback, errCallback) => { api.getHmks(userId, category, order, callback, errCallback)};
 
   /*establece el nuevo usuario actual*/
   setUser = ( obj ) => {
@@ -37,7 +37,17 @@ class SmartPlanner extends Component {
         console.log(hmks);
         this.setState({login:'hidden', user:obj[0], hmks: hmks});
       });
-  }
+  };
+
+  //resetHmk = ()=>{};
+
+  resetCreateForm = (callback) => {
+    this.resetHmk = (obj) => {callback(obj);}
+  };
+
+  resetEditView = (obj) =>{
+    this.resetHmk(obj);
+  };
 
   /*Actualiza las tareas teniendo en cuenta parametros de filtro cambiados*/
   updateQuery = (query) => {
@@ -77,6 +87,7 @@ class SmartPlanner extends Component {
   updateHmk = (hmk) => {
     var userId = this.state.user._id;
     var hmkId = hmk._id;
+    hmk.done_percentage = hmk.done_percentage/100;
     api.updateHmk(userId, hmkId, hmk, (resp) => {
       console.log('Respuesta put tarea');
       console.log(resp);
@@ -104,10 +115,11 @@ class SmartPlanner extends Component {
                                        toggleAddHmk={(addState) => {this.setState({createEditShow: addState})}}
                                         addHmk={this.state.createEditShow}
                                         toggleEditUser={(addState)=>{this.setState({userEditShow: addState})}}
-                                        editUser={this.state.userEditShow}/>
+                                        editUser={this.state.userEditShow} resetCreateForm={this.resetCreateForm}/>
         <div className="row">
         <HmkList user={this.state.user} hmkList={this.state.hmks} updateHmk={this.updateHmk} deleteHmk={this.deleteHmk}
-                                        toggleEditHmk={(addState) => {this.setState({createEditShow: addState})}}/>
+                                        toggleEditHmk={(addState) => {this.setState({createEditShow: addState})}}
+                                        resetEditView={this.resetEditView}/>
         <div className="col-md-2"></div>
         <Filter updateQuery={this.updateQuery}/>
       </div>

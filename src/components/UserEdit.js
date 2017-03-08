@@ -24,13 +24,20 @@ class UserEdit extends Component {
     return 'Agrega';
   };
 
-  close = () => {
+  close = (e) => {
+    e.preventDefault();
     this.props.toggleModal('hidden');
   };
 
   resetUser = (user) => {
     this.setState(user);
   };
+
+  send = (e) => {
+    e.preventDefault();
+    this.props.modalAction(this.state);
+    this.props.toggleModal('hidden');
+  }
 
 
   render() {
@@ -75,7 +82,7 @@ class UserEdit extends Component {
           </div>
           <div className="row">
             <div className="col-md-12">
-              <button className="btn btn-primary" onClick={() => {this.props.modalAction(this.state)}}>Ok</button>
+              <button className="btn btn-primary" onClick={this.send}>Ok</button>
               <button className="btn btn-danger" onClick={this.close}>Cancelar</button>
             </div>
           </div>
