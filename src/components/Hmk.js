@@ -5,9 +5,21 @@ import * as api from '../api';
 
 class Hmk extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      'show':this.props.show,
+      'showError': 'hidden'
+    };
+  }
+
+  loading = () => {
+    this.setState({'show':'visible', 'showError':'hidden'});
+  }
+
 
   show = (obj) => {
-    this.props.resetView(obj);
+    this.props.resetView(obj, 'Editar');
     this.props.toggleEditHmk('show');
   };
   customFormat = (date, formatString) =>{
@@ -41,35 +53,41 @@ priority = (num) => {
 };
 
 getDonePercentage = () => {
-  return (this.props.hmk.done_percentage*100)+"";
+  return (this.props.hmk.done_percentage)+"";
 };
 
 getDonePercentage2 = () => {
   return this.props.hmk.done_percentage+"%";
-}
+};
 
+showErr = () => {
+  this.setState({'showError':'visible', 'show':'hidden'});
+}
   render() {
 
     console.log('Hmk');
     console.log(this);
     var limit = this.props.hmk.limit_date,
-    date = this.customFormat(new Date(limit), "#DD#/#MM#/#YYYY# #hh#:#mm#" );
+    date = this.customFormat(new Date(limit), "#DD#/#MM#/#YY# #hh#:#mm#" );
     var style = {'width': this.getDonePercentage2()};
     return (
       <div className="hmk-container col-xs-12">
         <div className="row">
           <div className="col-xs-10">
           <div className="row">
-              <div className="col-xs-4">
+              <div className="col-xs-9">
                 <h3 className="remove-margin inline">{this.props.hmk.name}</h3>
               </div>
               <div className="col-xs-1">
-                <a title="Editar" href="" onClick={(e) => {e.preventDefault();this.show(this.props.hmk)}}><span className="glyphicon glyphicon-edit" ></span></a>
+                <a title="Editar" href="" onClick={(e) => {e.preventDefault();this.show(this.props.hmk);}}><span className="glyphicon glyphicon-edit" ></span></a>
               </div>
               <div className="col-xs-1">
-                <a title="Eliminar" href="" onClick={(e)=>{e.preventDefault();this.props.deleteHmk(this.props.hmk._id)}}><span className="glyphicon glyphicon-trash"></span></a>
+                <a title="Eliminar" href="" onClick={(e)=>{e.preventDefault();this.props.deleteHmk(this.props.hmk._id, this.showErr);this.loading();}}><span className="glyphicon glyphicon-trash"></span></a>
               </div>
-              <div className="col-xs-6"></div>
+              <div className="col-xs-1">    
+                <div className={"loading-hmk smaller "+this.state.show}></div>
+                <div className={"red "+this.state.showError}>Error</div>
+              </div>
           </div>
           </div>
           <div className="col-xs-2">

@@ -6,26 +6,10 @@
  .hmk-edit-container {
  	border: 1px solid #058ceb;
     border-radius: 10px;
-    padding: 25px;
-    position: fixed;
-    width: 77.5%;
+    padding: 15px;
     background-color: white;
-    z-index: 3;
     box-shadow: 0px 12px 54px grey;
-    margin-top: 75px;
- }
- @media (min-width: 0) and (max-width: 992px) {
- 	.hmk-edit-container {
- 	border: 1px solid #058ceb;
-    border-radius: 10px;
-    padding: 25px;
-    position: fixed;
-    width: 94.5%;
-    background-color: white;
-    z-index: 3;
-    box-shadow: 0px 12px 54px grey;
-    margin-top: 75px;
- }
+    margin-top: 47px;
  }
 
  .hmk-edit-container h3{
@@ -33,18 +17,11 @@
  	margin-bottom: 30px;
  }
 
- .hmk-edit-container input[type=radio] {
- 	width: 20%;
- }
-
- .hmk-edit-container input[type=number] {
- 	width: 20%;
- }
-
  .hmk-edit-container input, .hmk-edit-container textarea {
  	width: 100%;
  	border-radius: 5px;
  	border: 1px solid #7d82ba;
+    padding: 3px;
  }
 
  .logo_img {
@@ -115,7 +92,8 @@
  .login-form input {
  	border-radius: 5px;
  	color: #4c4c4c;
-
+    padding: 2px;
+    border: 2px solid white;
  }
 
  .login-logo {
@@ -313,4 +291,65 @@ body {
 
 .red {
     color: red;
+}
+
+.loading-hmk {
+    -webkit-animation: rotation 2s infinite linear;
+    border-radius: 100%;
+    background-color: #ffffff;
+    width: 20px;
+    height: 20px;
+    border-top: 4px solid #0287e5;
+    border-bottom: 4px solid #84ccff;
+    border-right: 4px solid #0287e5;
+    border-left: 4px solid #84ccff;
+    padding: 12px;
+}
+
+@-webkit-keyframes rotation {
+    from {-webkit-transform: rotate(0deg);}
+    to   {-webkit-transform: rotate(359deg);}
+}
+
+.add-hmk-accept {
+    background-color: white;
+    border: 1px solid #058ceb;
+    color: #058ceb;
+}
+
+.add-hmk-cancel {
+    background-color: white;
+    border: 1px solid red;
+    color: red;
+}
+
+.add-hmk-accept:hover {
+    background-color: #058ceb;
+    color: white;
+    border: 1px solid #058ceb;
+    -webkit-transition: background-color 0.5s, color 0.5s;
+    -o-transition: background-color 0.5s, color 0.5s;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.add-hmk-cancel:hover {
+    background-color: red;
+    border: 1px solid red;
+    color: white;
+    -webkit-transition: background-color 0.5s, color 0.5s;
+    -o-transition: background-color 0.5s, color 0.5s;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.loading-hmk.smaller {
+    padding:0;
+}
+
+
+.fixed-container {
+    position: fixed;
+    z-index: 3;
+    width: 100%;
+    top:0;
+    left: 0;
 }

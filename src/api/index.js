@@ -7,10 +7,12 @@ export const getUser = (username, callback, errCallback) => {
   axios.get(ROOT_URL+ "/users?username=" + username)
   .then(response => {
       //callback(action.getUserOk(response.data));
+      console.log("response: "+response.data);
       callback(response.data);
     }).catch(err => {
       //callback(action.getUserErr(response.data));
-      errCallback(err.message);
+      console.log("get user err: "+err.message);
+      if(errCallback) errCallback(err.message);
     });
     //return actions.toggleUserLoading();
   };
@@ -19,6 +21,7 @@ export const getUser = (username, callback, errCallback) => {
    axios.put(ROOT_URL+"/users/" + userId, user).then(response => {
     callback(response.data);
   }).catch(err => {
+    console.log(err.message);
     errCallback(err.message);
   });
     //return actions.toggleUserLoading();
@@ -32,6 +35,7 @@ export const getUser = (username, callback, errCallback) => {
       console.log(response.data)
       callback(response.data);
     }).catch(err =>{
+      console.log(err.message);
       errCallback(err.message);
     });
   };
@@ -42,6 +46,7 @@ export const getUser = (username, callback, errCallback) => {
       .then(response => {
         callback(response.data);
       }).catch(err => {
+        console.log(err.message);
         errCallback(err.message);
       });
     //retornar actions.postHmkOk() o actions.postHmkErr() segun el caso
@@ -52,6 +57,7 @@ export const getUser = (username, callback, errCallback) => {
    .then(response => {
     callback(response.data);
   }).catch(err => {
+    console.log(err.message);
     errCallback(err.message);
   });
   //return actions.toggleHmkLoading();
@@ -61,6 +67,7 @@ export const deleteHmk = (userId, hmkId, callback, errCallback) => {
 	axios.delete(ROOT_URL+"/users/"+userId+"/hmks/"+hmkId).then(response => {
     callback(response.data);
   }).catch(err => {
+    console.log(err.message);
     errCallback(err.message);
   });
     //return actions.toggleHmkLoading();

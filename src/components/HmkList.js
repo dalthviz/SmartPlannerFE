@@ -20,7 +20,7 @@ class HmkList extends Component {
 			</div>
 			<div className='row'>
 			{ this.props.hmkList.map(hmk => {
-      			return <Hmk key={hmk._id} hmk={hmk} modalAction={this.props.updateHmk}  deleteHmk={this.props.deleteHmk}
+      			return <Hmk key={hmk._id} hmk={hmk} show='hidden' modalAction={this.props.updateHmk}  deleteHmk={this.props.deleteHmk}
 																												  toggleEditHmk={this.props.toggleEditHmk}
 																												  resetView={this.props.resetEditView}/>
     		})}

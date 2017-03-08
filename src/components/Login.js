@@ -16,8 +16,10 @@ class Login extends Component {
 		e.preventDefault();
 		this.setState({'err':'hidden', 'loading':'visible'});
 		this.props.getUser(this.state.user_name, (obj)=>{
+			console.log("inicia callback bien");
 	  		this.props.setUser(obj);
 	  		this.setState({'err':'hidden', 'loading':'hidden'});
+	  		console.log("finaliza callback bien");
 	  	}, ()=>{this.setState({'err':'visible', 'loading':'hidden'})});
 	  	this.forceUpdate();
 	};
