@@ -72,7 +72,7 @@ class SmartPlanner extends Component {
   /*Agregar tarea al usurio actual*/
   postHmk = (hmk, str, errCallback, callback) => {
     if(str === 'Editar'){
-      this.updateHmk(hmk, errCallback);
+      this.updateHmk(hmk, errCallback, callback);
     }else{
     var userId = this.state.user._id;
     api.addHmkToUser(userId, hmk,(resp) => {
@@ -95,13 +95,14 @@ class SmartPlanner extends Component {
   }
 
   /*Actualiza una tarea*/
-  updateHmk = (hmk, errCallback) => {
+  updateHmk = (hmk, errCallback, callback) => {
     var userId = this.state.user._id;
     var hmkId = hmk._id;
     hmk.done_percentage = hmk.done_percentage;
     api.updateHmk(userId, hmkId, hmk, (resp) => {
       console.log('Respuesta put tarea');
       console.log(resp);
+      callback();
       this.updateQuery({});
     }, errCallback);
   }
