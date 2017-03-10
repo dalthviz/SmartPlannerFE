@@ -6,8 +6,8 @@
   "repository": "git@github.com:dalthviz/SmartPlannerFE.git",
   "scripts": {
     "start": "node server.js",
-    "prod": "NODE_ENV=production node server.js",
-    "postinstall": "webpack -p"
+    "postinstall": "webpack --progress -p",
+    "prod": "NODE_ENV=production node server.js"
   },
   "author": "Daniel Althviz; Jose Daniel Fandiño",
   "license": "MIT",
