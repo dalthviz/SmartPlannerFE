@@ -1,16 +1,15 @@
-input[type=time]::-webkit-datetime-edit-ampm-field {
-   display: none;
+ body {
+ 	font-family: Montserrat;
+ 	overflow-x: hidden;
  }
 
  .hmk-edit-container {
  	border: 1px solid #058ceb;
- 	border-radius: 10px;
- 	padding: 25px;
- 	position: fixed;
- 	width: 75%;
- 	background-color: white;
- 	z-index: 3;
- 	box-shadow: 0px 12px 54px grey;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0px 12px 54px grey;
+    margin-top: 47px;
  }
 
  .hmk-edit-container h3{
@@ -18,93 +17,339 @@ input[type=time]::-webkit-datetime-edit-ampm-field {
  	margin-bottom: 30px;
  }
 
- .hmk-edit-container input[type=radio] {
- 	width: 5%;
+ .hmk-edit-container input, .hmk-edit-container textarea {
+ 	width: 100%;
+ 	border-radius: 5px;
+ 	border: 1px solid #7d82ba;
+    padding: 3px;
  }
 
-.hmk-edit-container input, .hmk-edit-container textarea {
-   	width: 100%;
+ .logo_img {
+ 	margin-top: -15px;
+ 	height: 55px;
+ 	padding-top: 8px;
+ 	margin-left: 40px;
+ }
+
+ .navbar {
+ 	background-image: url('imgs/blue_back.png');
+ 	background-repeat: repeat;
+ 	margin-top: 15px;
+ }
+
+ .navbar-default .navbar-nav>li>a {
+ 	color: #fff;
+ }
+
+ .login h1 {
+ 	width: 100%;
+ }
+
+ .login-message {
+ 	color: #96d2fd;
+ 	margin-top: 40px;
+ }
+
+ .login {
+ 	text-align: center;
+ 	color: white;
+ 	position: fixed;
+ 	width: 100%;
+ 	height: 100%;
+ 	z-index: 3;
+ 	background-image: url('imgs/blue_back.png');
+ 	background-repeat: repeat;
+ 	top: 0;
+ 	left: 0;
+ 	font-family: Gloria Hallelujah;
+ 	color: #d5ecff;
+ }
+
+ .login button {
+ 	margin:15px;
+ 	font-weight: bold;
+ 	background-color: #058ceb;
+ 	border-radius: 10px;
+ 	border: 1px solid white;
+ 	-webkit-transition: background-color 0.5s, color 0.5s;
+ 	-o-transition: background-color 0.5s, color 0.5s;
+ 	transition: background-color 0.5s, color 0.5s;
+ }
+ .login button:focus, .login button:hover{
+ 	border-color: white;
+ 	background-color: white;
+ 	color: #058ceb;
+ 	-webkit-transition: background-color 0.5s, color 0.5s;
+ 	-o-transition: background-color 0.5s, color 0.5s;
+ 	transition: background-color 0.5s, color 0.5s;
+
+ }
+
+ .login-form {
+ 	margin-top: 15px;
+ }
+
+ .login-form input {
+ 	border-radius: 5px;
+ 	color: #4c4c4c;
+    padding: 2px;
+    border: 2px solid white;
+ }
+
+ .login-logo {
+ 	height: 180px;
+ 	margin-top: 80px;
+ 	margin-bottom: 20px;
+ }
+
+ .login-options {
+ 	display: block;
+ 	float: left;
+ 	position: relative;
+ 	right: 50%;
+ }
+
+ .visible {
+ 	opacity: 1;
+ 	visibility: visible;
+ 	-webkit-transition: visibility 2s, opacity 1s;
+ 	-o-transition: visibility 2s, opacity 1s;
+ 	transition: opacity 1s;
+ }
+
+ .hidden {
+ 	opacity: 0;
+ 	visibility: hidden;
+ 	-webkit-transition: opacity 1s;
+ 	-o-transition: opacity 1s;
+ 	transition: opacity 1s;
+ }
+
+ .hmk-form-btn {
+ 	margin-right: 5px;
+ }
+
+ .navbar-default .navbar-toggle .icon-bar {
+ 	background-color: #f5f0ec;
+ }
+
+ .navbar-default .navbar-toggle {
+ 	border: 2px solid #f5f0ec;
+ 	margin: 14px;
+ 	margin-right: 55px;
+ }
+
+ .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+ 	background-color: #0063a7;
+ }
+
+ .login-message {
+ 	font-size: 20px;
+ }
+
+ .hmk-container {
+ 	padding: 25px;
+    border: 1px solid #0063a7;
+    box-shadow: 0px 4px 4px grey;
+    margin-bottom: 20px;
+ }
+
+ .sp-nav-style {
+ 	position: absolute;
+ 	left: -3px;
+ 	top: -17px;
+ 	width: 105%;
+ 	height: 65px;
+ 	z-index: 2;
+ }
+
+ .sp-nav-header {
+ 	height: 65px;
+ }
+
+ .sp-nav-options {
+ 	margin-top:0;
+ 	background-image: url('imgs/blue_back.png');
+ 	background-repeat: repeat;
+ 	margin-right: 6%;
+ }
+
+ .sp-nav-links {
+ 	margin: 8px;
+ }
+
+ h1, h2, h3, h4, h5, h6 {
+ 	font-weight: bold;
+ 	color: #0589e6;
+ }
+
+ .filter input[type=radio] {
+ 	margin: 8px;
+ }
+
+ @media (min-width: 992px ) {
+ 	.content.filter {
+ 		position: fixed;
+ 		left: 70%;
+ 		margin-top: 80px;
+ 		padding-top: 0px;
+ 		border: 1px solid #058ceb;
+ 		border-radius: 10px;
+ 		box-shadow: 0px 4px 10px grey;
+ 	}
+ }
+
+ @media (min-width: 0) and (max-width: 992px) {
+ 	.content.filter {
+ 		position: absolute;
+ 		left: -45px;
+ 		top: 75px;
+ 		margin-top: 0;
+ 		border: 1px solid #058ceb;
+ 		border-radius: 10px;
+ 		padding-left: 10%;
+ 		background-color: white;
+ 		width: 105%;
+ 		padding-bottom: 10px;
+ 		box-shadow: 0px 7px 10px grey;
+    	border-top: none;
+ 	}
+ }
+
+ .loading-circles {
+ 	margin-top: -25px;
+ }
+
+ @media (min-width: 992px ) {
+ 	.content {
+ 		padding:20px;
+ 		margin-top: 45px;
+ 		margin-left: 35px;
+ 		margin-right: 35px;
+ 	}
+ }
+
+ @media (min-width: 0) and (max-width: 992px) {
+ 	.content {
+ 		padding: 0;
+ 		margin-top: 325px;
+ 		margin-left: 35px;
+ 		margin-right: 35px;
+ 	}
+ }
+
+ .footer p {
+    text-align: center;
+    font-size: 0.75em;
+    margin-bottom: 1px;
+    color: #ededed;
+    width: 98%
 }
 
-.logo_img {
-	 margin-top: -15px;
-	height: 50px;
+.footer a {
+    font-weight: bold;
+    color: #ededed;
 }
 
-.navbar {
-	background-image: url('imgs/blue_back.png');
-	background-repeat: repeat-x;
-	margin-top: 15px;
+.footer {
+
+    
+    background-image: url(imgs/blue_back.png);
+    background-repeat: repeat;
+    position: fixed;
+    bottom: -2px;
+    height: 41px;
+    width: 100%;
+    padding-top: 7px;
 }
 
-.navbar-default .navbar-nav>li>a {
-    color: #fff;
+body {
+  height: 100%;
+  position:relative;
 }
 
-.login h1 {
-	width: 100%;
+.container {
+	margin-bottom: 50px;
 }
 
-.login {
-	text-align: center;
-	color: white;
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	z-index: 3;
-	background-image: url('imgs/blue_back.png');
-	background-repeat: repeat;
-	top: 0;
-	left: 0;
+.inline {
+    display: inline;
 }
 
-.login button {
-	margin:15px;
-	font-weight: bold;
-	background-color: #058ceb;
-	border-radius: 10px;
-	border: 1px solid white;
-	-webkit-transition: background-color 0.5s, color 0.5s;
-	-o-transition: background-color 0.5s, color 0.5s;
-	transition: background-color 0.5s, color 0.5s;
-}
-.login button:hover{
-	background-color: white;
-	color: #058ceb;
-	-webkit-transition: background-color 0.5s, color 0.5s;
-	-o-transition: background-color 0.5s, color 0.5s;
-	transition: background-color 0.5s, color 0.5s;
-
+.remove-margin {
+    margin-top: -10px;
 }
 
-.login-logo {
-	height: 500px;
-	padding-top: 50px;
+
+.green {
+    color: green;
 }
 
-.login-options {
-	display: block;
-	float: left;
-	position: relative;
-	right: 50%;
+.yellow {
+    color: #d1d10d;
 }
 
-.visible, .visible *{
-	opacity: 1;
-	visibility: visible;
-	-webkit-transition: visibility 2s, opacity 1s;
-	-o-transition: visibility 2s, opacity 1s;
-	transition: opacity 1s;
+.red {
+    color: red;
 }
 
-.hidden, .hidden *{
-	opacity: 0;
-	visibility: hidden;
-	-webkit-transition: opacity 1s;
-	-o-transition: opacity 1s;
-	transition: opacity 1s;
+.loading-hmk {
+    -webkit-animation: rotation 2s infinite linear;
+    border-radius: 100%;
+    background-color: #ffffff;
+    width: 20px;
+    height: 20px;
+    border-top: 4px solid #0287e5;
+    border-bottom: 4px solid #84ccff;
+    border-right: 4px solid #0287e5;
+    border-left: 4px solid #84ccff;
+    padding: 12px;
 }
 
-.hmk-form-btn {
-	margin-right: 5px;
+@-webkit-keyframes rotation {
+    from {-webkit-transform: rotate(0deg);}
+    to   {-webkit-transform: rotate(359deg);}
+}
+
+.add-hmk-accept {
+    background-color: white;
+    border: 1px solid #058ceb;
+    color: #058ceb;
+}
+
+.add-hmk-cancel {
+    background-color: white;
+    border: 1px solid red;
+    color: red;
+}
+
+.add-hmk-accept:hover {
+    background-color: #058ceb;
+    color: white;
+    border: 1px solid #058ceb;
+    -webkit-transition: background-color 0.5s, color 0.5s;
+    -o-transition: background-color 0.5s, color 0.5s;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.add-hmk-cancel:hover {
+    background-color: red;
+    border: 1px solid red;
+    color: white;
+    -webkit-transition: background-color 0.5s, color 0.5s;
+    -o-transition: background-color 0.5s, color 0.5s;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.loading-hmk.smaller {
+    padding:0;
+}
+
+
+.fixed-container {
+    position: fixed;
+    z-index: 3;
+    width: 100%;
+    top:0;
+    left: 0;
 }

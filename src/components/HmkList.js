@@ -4,24 +4,25 @@ import Hmk from './Hmk';
 class HmkList extends Component {
 
 	render(){
-		console.log('HmkList');
-		console.log(this);
-		console.log(this.props.hmkList);
+		//console.log('HmkList');
+		//console.log(this);
+		//console.log(this.props.hmkList);
 		var mensaje = '';
 		if (this.props.hmkList.length > 0) mensaje = 'Estas son las tareas que tienes.';
 		else mensaje = 'No tienes tareas con los filtros dados.';
 	return (
-		<div className='col-md-8'>
+		<div className='col-md-8 content'>
 			<div className='row'>
 				<div className='col-xs-12'>
 					<h1>¡Hola {this.props.user.user_name}!</h1>
-					<p>{mensaje}</p>
+					<p><br />{mensaje}</p>
 				</div>
 			</div>
 			<div className='row'>
 			{ this.props.hmkList.map(hmk => {
-      			return <Hmk className="hmk" key={hmk._id} hmk={hmk} modalAction={this.props.updateHmk}  deleteHmk={this.props.deleteHmk}
-																												  toggleEditHmk={this.props.toggleEditHmk}/>
+      			return <Hmk key={hmk._id} hmk={hmk} show='hidden' modalAction={this.props.updateHmk}  deleteHmk={this.props.deleteHmk}
+																												  toggleEditHmk={this.props.toggleEditHmk}
+																												  resetView={this.props.resetEditView}/>
     		})}
 		</div>
 		</div>
