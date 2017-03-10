@@ -5,7 +5,9 @@
   "main": "index.js",
   "repository": "git@github.com:dalthviz/SmartPlannerFE.git",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --port 8080"
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "prod": "NODE_ENV=production node server.js",
+    "postinstall": "webpack -p"
   },
   "author": "Daniel Althviz; Jose Daniel Fandiño",
   "license": "MIT",
